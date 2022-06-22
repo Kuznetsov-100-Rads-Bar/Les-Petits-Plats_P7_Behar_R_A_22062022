@@ -1,0 +1,22 @@
+{
+  "name": "les-petits-plats_p7",
+  "version": "1.0.0",
+  "description": "Mon projet OpenClassrooms 7 Les Petits Plats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kuznetsov-100-Rads-Bar/Les-Petits-Plats_P7_Behar_R_A_22062022.git"
+  },
+  "author": "Behar R.AKD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kuznetsov-100-Rads-Bar/Les-Petits-Plats_P7_Behar_R_A_22062022/issues"
+  },
+  "homepage": "https://github.com/Kuznetsov-100-Rads-Bar/Les-Petits-Plats_P7_Behar_R_A_22062022#readme",
+  "dependencies": {
+    "sass": "^1.52.3"
+  }
+}
