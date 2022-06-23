@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Kuznetsov-100-Rads-Bar/Les-Petits-Plats_P7_Behar_R_A_22062022#readme",
   "dependencies": {
-    "sass": "^1.52.3"
+    "sass": "^1.53.0"
   }
 }
