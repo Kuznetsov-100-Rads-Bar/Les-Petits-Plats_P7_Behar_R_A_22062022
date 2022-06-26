@@ -16,9 +16,83 @@
             <img src="./assets/logo_banner/banner_les_petits_plats.png" alt="Logo les petits plats" />
             <!-- BARRE DE RECHERCHE -->
             <div class="header-search-input">
-<input type="text" id="recipeSearch" name="recipeSearch" class="search-input" placeholder="Rechercher une recette">
+                <input type="text" id="recipeSearch" name="recipeSearch" class="search-input"
+                    placeholder="Rechercher une recette">
+                <img src="./assets/icons/search-icon.svg" alt="">
+            </div>
+            <div class="selected-tags">
+                <div class="selected-tag ingredient">
+                    <p>Coco</p>
+                    <img src="./assets/icons/close-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="tags-container">
+                <div class="tag tag-ingredients">
+                    <div class="tag-input-container">
+                        <input type="text" name="tagListInput" id="tagListInput" placeholder="Ingredients">
+                        <img src="./assets/icons/dropdown-icon.svg">
+                    </div>
+                    <ul class="tag-list">
+                        <li class="tag-list-item">Saucisson de cheval</li>
+                        <li class="tag-list-item">Myrtille périmée</li>
+                        <li class="tag-list-item">Khalouf</li>
+                        <li class="tag-list-item">Kashir</li>
+                    </ul>
+                </div>
+                <div class="tag tag-appliances">
+                    <div class="tag-input-container">
+                        <input type="text" name="tagListInput" id="tagListInput" placeholder="Appareils">
+                        <img src="./assets/icons/dropdown-icon.svg">
+                    </div>
+                    <ul class="tag-list">
+                        <li class="tag-list-item">Saucisson de cheval</li>
+                        <li class="tag-list-item">Myrtille périmée</li>
+                        <li class="tag-list-item">Khalouf</li>
+                        <li class="tag-list-item">Kashir</li>
+                    </ul>
+                </div>
+                <div class="tag tag-ustensils">
+                    <div class="tag-input-container">
+                        <input type="text" name="tagListInput" id="tagListInput" placeholder="Ustensils">
+                        <img src="./assets/icons/dropdown-icon.svg">
+                    </div>
+                    <ul class="tag-list">
+                        <li class="tag-list-item">Saucisson de cheval</li>
+                        <li class="tag-list-item">Myrtille périmée</li>
+                        <li class="tag-list-item">Khalouf</li>
+                        <li class="tag-list-item">Kashir</li>
+                    </ul>
+                </div>
             </div>
         </header>
+        <main class="cards-container">
+            <div class="card">
+                <div class="card-header"></div>
+                <div class="card-body">
+                    <div class="card-title">
+                        <h3>Titre de la carte</h3>
+                    </div>
+                    <div class="card-duration">
+                        <img src="./assets/icons/time-icon.svg" alt="">
+                        <p>30 min</p>
+                    </div>
+                    <div class="card-ingredients">
+                        <ul class="card-ingredients-list">
+                            <li class="card-ingredient">Khalouf</li>
+                            <li class="card-ingredient">BenKashir</li>
+                            <li class="card-ingredient">Zoulou</li>
+                            <li class="card-ingredient">Bigorneau</li>
+                        </ul>
+                    </div>
+                    <div class="card-description">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis neque architecto officia
+                            inventore, ab debitis magnam.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="./scripts/main.js" type="module"></script>
     </body>
 
 </html>
