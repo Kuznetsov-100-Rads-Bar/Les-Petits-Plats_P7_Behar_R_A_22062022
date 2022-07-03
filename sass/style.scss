@@ -1,4 +1,206 @@
-h1 {
-  font-size: larger;
-  background-color: pink;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+$ingredientsColor: #3282F7;
+$appliancesColor: #68D9A4;
+$ustensilsColor: #ED6454;
+
+body {
+  font-family: 'Lato', sans-serif;
+  // background-color: rgb(213, 208, 209);
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+  // padding: 45px 32px 0px;
+  // border: 1px dashed red;
+}
+
+.header-logo {
+
+  width: 268px;
+  align-self: center;
+}
+
+.header-search-input {
+  position: relative;
+  
+  .search-input {
+    // max-width: 1100px;
+    // width: 950px;
+    width: calc(100% - 80px);
+    margin: 17px 0px 25px 0px;
+    padding: 16px;
+    padding-right: 64px;
+    border: none;
+    border-radius: 4px;
+    background-color: #E7E7E7;
+  }
+  
+  .search-icon {
+    position: absolute;
+    right: 32px;
+    width: 28px;
+    height: 28px;
+    top: 45%;
+    transform: translate(50%, -50%);
+  }
+}
+  
+
+.tags-container {
+  position: absolute;
+  top: 238px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  .tag {
+    width: 170px;
+    // width: 667px;
+    height: max-content;
+    border-radius: 5px;
+    background-color: #E7E7E7;
+    .tag-input-container {
+      position: relative;
+      input {
+        &::placeholder {
+          color: white;
+          opacity: 1;
+        }
+        padding-left: 16px;
+        width: calc(100% - 56px);
+        height: 69px;
+        background-color: transparent;
+        border: none;
+      }
+      img {
+        position: absolute;
+        right: 12px;
+        top: 45%;
+        transition: transform .6s;
+        cursor: pointer;
+      }
+      .rotated {
+        transition: transform .6s;
+        transform: rotate(180deg);
+      }
+    }
+
+    .tag-list {
+      margin: 0;
+      padding: 16px;
+      padding-top: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      display: none;
+      
+      .tag-list-item {
+        color: white;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 10px;
+        list-style: none;
+        cursor: pointer;
+      }
+    }
+  }
+  .tag-ingredients {
+    background-color: $ingredientsColor;
+  }
+
+  .tag-appliances {
+    background-color: $appliancesColor;
+  }
+
+  .tag-ustensils {    
+    background-color: $ustensilsColor;
+    .tag-list {
+      display: none;
+    }
+  }
+}
+
+.cards-container {
+  margin-top: 82px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  .card {
+    width: 380px;
+    height: 364px;
+    border-radius: 5px;
+    background-color: #E7E7E7;
+    .card-header {
+      background-color: #C7BEBE;
+      height: 178px;
+    }
+    .card-body {
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+      grid-template-rows: repeat(2, auto);
+      align-items: flex-start;
+      padding: 20px;
+      row-gap: 20px;
+      .card-title {
+        h3 {
+          margin: 0;
+          font-size: 18px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      .card-duration {
+        display: flex;
+        justify-self: flex-end;
+        img {
+          margin-right: 7px;
+          width: 18px;
+        }
+        p {
+          margin: 0;
+          font-size: 18px;
+          font-weight: 700;
+        }
+      }
+      .card-ingredients {
+        .card-ingredients-list {
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          padding: 0;
+          .card-ingredient {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            .card-ingredient-name {
+              font-weight: 700;
+            }
+          }
+        }
+      }
+      .card-description {
+        max-width: 1fr;
+        word-wrap: break-word;
+        overflow: hidden;
+        max-height: 96px;
+        text-overflow: ellipsis;
+        p {
+          margin: 0;
+            font-size: 12px;
+        }
+      }
+    }
+
+  }
 }

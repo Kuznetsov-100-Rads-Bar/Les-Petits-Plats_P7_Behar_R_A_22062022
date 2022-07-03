@@ -1,6 +1,184 @@
-h1 {
-  font-size: larger;
-  background-color: pink;
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+}
+
+.header-logo {
+  width: 268px;
+  align-self: center;
+}
+
+.header-search-input {
+  position: relative;
+}
+.header-search-input .search-input {
+  width: calc(100% - 80px);
+  margin: 17px 0px 25px 0px;
+  padding: 16px;
+  padding-right: 64px;
+  border: none;
+  border-radius: 4px;
+  background-color: #E7E7E7;
+}
+.header-search-input .search-icon {
+  position: absolute;
+  right: 32px;
+  width: 28px;
+  height: 28px;
+  top: 45%;
+  transform: translate(50%, -50%);
+}
+
+.tags-container {
+  position: absolute;
+  top: 238px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.tags-container .tag {
+  width: 170px;
+  height: max-content;
+  border-radius: 5px;
+  background-color: #E7E7E7;
+}
+.tags-container .tag .tag-input-container {
+  position: relative;
+}
+.tags-container .tag .tag-input-container input {
+  padding-left: 16px;
+  width: calc(100% - 56px);
+  height: 69px;
+  background-color: transparent;
+  border: none;
+}
+.tags-container .tag .tag-input-container input::placeholder {
+  color: white;
+  opacity: 1;
+}
+.tags-container .tag .tag-input-container img {
+  position: absolute;
+  right: 12px;
+  top: 45%;
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+.tags-container .tag .tag-input-container .rotated {
+  transition: transform 0.6s;
+  transform: rotate(180deg);
+}
+.tags-container .tag .tag-list {
+  margin: 0;
+  padding: 16px;
+  padding-top: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  display: none;
+}
+.tags-container .tag .tag-list .tag-list-item {
+  color: white;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+.tags-container .tag-ingredients {
+  background-color: #3282F7;
+}
+.tags-container .tag-appliances {
+  background-color: #68D9A4;
+}
+.tags-container .tag-ustensils {
+  background-color: #ED6454;
+}
+.tags-container .tag-ustensils .tag-list {
+  display: none;
+}
+
+.cards-container {
+  margin-top: 82px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+.cards-container .card {
+  width: 380px;
+  height: 364px;
+  border-radius: 5px;
+  background-color: #E7E7E7;
+}
+.cards-container .card .card-header {
+  background-color: #C7BEBE;
+  height: 178px;
+}
+.cards-container .card .card-body {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(2, auto);
+  align-items: flex-start;
+  padding: 20px;
+  row-gap: 20px;
+}
+.cards-container .card .card-body .card-title h3 {
+  margin: 0;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cards-container .card .card-body .card-duration {
+  display: flex;
+  justify-self: flex-end;
+}
+.cards-container .card .card-body .card-duration img {
+  margin-right: 7px;
+  width: 18px;
+}
+.cards-container .card .card-body .card-duration p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+.cards-container .card .card-body .card-ingredients .card-ingredients-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.cards-container .card .card-body .card-ingredients .card-ingredients-list .card-ingredient {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cards-container .card .card-body .card-ingredients .card-ingredients-list .card-ingredient .card-ingredient-name {
+  font-weight: 700;
+}
+.cards-container .card .card-body .card-description {
+  max-width: 1fr;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 96px;
+  text-overflow: ellipsis;
+}
+.cards-container .card .card-body .card-description p {
+  margin: 0;
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */
