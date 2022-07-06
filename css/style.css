@@ -40,9 +40,40 @@ body {
   transform: translate(50%, -50%);
 }
 
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.selected-tags .selected-tag {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background-color: #C7BEBE;
+  width: max-content;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.selected-tags .selected-tag.ingredient {
+  background-color: #3282F7;
+}
+.selected-tags .selected-tag.appliance {
+  background-color: #68D9A4;
+}
+.selected-tags .selected-tag.ustensil {
+  background-color: #ED6454;
+}
+.selected-tags .selected-tag p {
+  margin: 0;
+  color: white;
+}
+.selected-tags .selected-tag img {
+  cursor: pointer;
+}
+
 .tags-container {
-  position: absolute;
-  top: 238px;
+  position: relative;
+  margin-top: 16px;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -74,17 +105,14 @@ body {
   transition: transform 0.6s;
   cursor: pointer;
 }
-.tags-container .tag .tag-input-container .rotated {
-  transition: transform 0.6s;
-  transform: rotate(180deg);
-}
 .tags-container .tag .tag-list {
+  position: absolute;
   margin: 0;
   padding: 16px;
   padding-top: 0;
-  display: grid;
   grid-template-columns: repeat(3, 1fr);
   display: none;
+  overflow: hidden;
 }
 .tags-container .tag .tag-list .tag-list-item {
   color: white;
@@ -93,18 +121,42 @@ body {
   margin-bottom: 10px;
   list-style: none;
   cursor: pointer;
+  overflow: hidden;
+}
+.tags-container .tag.tag-open {
+  border-radius: 5px 5px 0 0;
+  width: 824px !important;
+}
+.tags-container .tag.tag-open .tag-input-container img {
+  transition: transform 0.6s;
+  transform: rotate(180deg);
+}
+.tags-container .tag.tag-open .tag-list {
+  display: grid !important;
 }
 .tags-container .tag-ingredients {
   background-color: #3282F7;
 }
+.tags-container .tag-ingredients .tag-list {
+  width: 792px;
+  background-color: #3282F7;
+  top: 100%;
+}
 .tags-container .tag-appliances {
   background-color: #68D9A4;
+}
+.tags-container .tag-appliances .tag-list {
+  width: 792px;
+  background-color: #68D9A4;
+  top: 100%;
 }
 .tags-container .tag-ustensils {
   background-color: #ED6454;
 }
 .tags-container .tag-ustensils .tag-list {
-  display: none;
+  width: 792px;
+  background-color: #ED6454;
+  top: 100%;
 }
 
 .cards-container {

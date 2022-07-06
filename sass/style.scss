@@ -52,11 +52,42 @@ body {
     transform: translate(50%, -50%);
   }
 }
+
+.selected-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  .selected-tag {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background-color: #C7BEBE;
+    width: max-content;
+    padding: 10px 20px;
+    border-radius: 5px;
+    &.ingredient {
+      background-color: $ingredientsColor;
+    }
+    &.appliance {
+      background-color: $appliancesColor;
+    }
+    &.ustensil {
+      background-color: $ustensilsColor;
+    }
+    p {
+      margin: 0;
+      color: white;
+    }
+    img {
+      cursor: pointer;
+    }
+  }
+}
   
 
 .tags-container {
-  position: absolute;
-  top: 238px;
+  position: relative;
+  margin-top: 16px;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -86,19 +117,16 @@ body {
         transition: transform .6s;
         cursor: pointer;
       }
-      .rotated {
-        transition: transform .6s;
-        transform: rotate(180deg);
-      }
     }
 
     .tag-list {
+      position: absolute;
       margin: 0;
       padding: 16px;
       padding-top: 0;
-      display: grid;
       grid-template-columns: repeat(3, 1fr);
       display: none;
+      overflow: hidden;
       
       .tag-list-item {
         color: white;
@@ -107,21 +135,48 @@ body {
         margin-bottom: 10px;
         list-style: none;
         cursor: pointer;
+        overflow: hidden;
+      }
+
+    }
+    &.tag-open {
+      border-radius: 5px 5px 0 0;
+      width: calc(792px + 32px) !important;
+      .tag-input-container {
+        img {
+          transition: transform .6s;
+          transform: rotate(180deg);
+        }
+      }
+      .tag-list {
+        display: grid !important;
       }
     }
   }
   .tag-ingredients {
     background-color: $ingredientsColor;
+    .tag-list {
+      width: 792px;
+      background-color: $ingredientsColor;
+      top: 100%;
+    }
   }
 
   .tag-appliances {
     background-color: $appliancesColor;
+    .tag-list {
+      width: 792px;
+      background-color: $appliancesColor;
+      top: 100%;
+    }
   }
 
   .tag-ustensils {    
     background-color: $ustensilsColor;
     .tag-list {
-      display: none;
+      width: 792px;
+      background-color: $ustensilsColor;
+      top: 100%;
     }
   }
 }

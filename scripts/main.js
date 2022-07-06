@@ -1,8 +1,10 @@
 import recipes from "../data/recipes.js";
 import { Card } from "./models/card.model.js";
-import { Ingredients } from "./models/ingredients.model.js";
+import { ingredientsInstance } from "./models/ingredients.model.js";
+import { appliancesInstance } from "./models/appliances.model.js";
+// import { Ustensils } from "./models/Ustensils.model.js";
 
-const init = async () => {
+const init = () => {
   console.log(recipes);
 
  /* Creating an empty array. */
@@ -30,16 +32,43 @@ const init = async () => {
 
   /* Creating a new array from the tempIngredients array, but only with unique values. */
   const ingredients = [...new Set(tempIngredients)];
-  const ustensils = [...new Set(tempUstensils)];
-  const appliances = [...new Set(tempAppliances)];
+  const appliances =  [...new Set(tempAppliances)];
+  // const ustensils = [...new Set(tempUstensils)];
   //console.log(ingredients);
   //console.log(ustensils);
   //console.log(appliances);
-  const ingredientsInstance = new Ingredients(ingredients);
-  console.log(ingredientsInstance.getIngredients());
+  ingredientsInstance.setupIngredientsList(ingredients);
+  appliancesInstance.setupAppliancesList(appliances);
+  // ustensilsInstance = new Ustensils(ustensils.sort());
+
+  // console.log("Ingredients", ingredientsInstance.getIngredients());
+  // console.log("Appliances", appliancesInstance.getAppliances());
+  // console.log("Ustensils", ustensilsInstance.getUstensils());
+
 
   const cardsInstance = new Card(recipes);
   console.log(cardsInstance.display());
 };
 
 init();
+/*
+function generateIng(recipeArr) {
+  let temp = []
+  recipes.forEach((recipe) => {
+    if (recipe.ingredients) {
+      for (let i = 0; i < recipe.ingredients.length; i++) {
+        const ingredient = recipe.ingredients[i];
+        temp.push(ingredient.ingredient);
+      }
+    }
+  });
+
+  return temp
+}
+
+function displayIng() {
+
+}
+
+const ingList = generateIng(filteredRecipe)
+displayIng(ingList);*/
