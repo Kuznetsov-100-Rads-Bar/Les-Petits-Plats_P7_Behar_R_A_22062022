@@ -1,8 +1,9 @@
 import recipes from "../data/recipes.js";
-import { Card } from "./models/card.model.js";
+import { cardsInstance } from "./models/card.model.js";
 import { ingredientsInstance } from "./models/ingredients.model.js";
 import { appliancesInstance } from "./models/appliances.model.js";
 import { ustensilsInstance } from "./models/Ustensils.model.js";
+import { searchInputHandler } from "./components/searchBar.js";
 
 const init = () => {
   // console.log(recipes);
@@ -46,9 +47,11 @@ const init = () => {
   // console.log("Ustensils", ustensilsInstance.getUstensils());
 
 
-  const cardsInstance = new Card(recipes);
+  cardsInstance.setupInitialRecipes(recipes);
   cardsInstance.display();
   // console.log(cardsInstance.display());
+
+  searchInputHandler();
 };
 
 init();

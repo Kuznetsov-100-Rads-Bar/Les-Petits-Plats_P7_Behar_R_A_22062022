@@ -1,16 +1,31 @@
 const cardsContainer = document.querySelector('.cards-container');
 
-export class Card {
-    constructor(recipes) {
+class Card {
+    constructor() {
+        this.initialRecipes = [];
+        this.recipes = [];
+    }
+
+    setupInitialRecipes = (recipes) => {
         this.initialRecipes = recipes;
         this.recipes = recipes;
+        return 'Card successfully setup';
+    }
+
+    getRecipes = (isInitial) => {
+        if (isInitial && isInitial === "initial") {
+            return this.initialRecipes;
+        }
+        return this.recipes;
     }
 
     update = (recipes) => {
-        if (Array(recipes) && recipes.length > 0) {
-            this.recipes = recipes;
-        }
-        this.display()
+        // if (Array(recipes) && recipes.length > 0) {
+        //     this.recipes = recipes;
+        // }
+        this.recipes = recipes;
+
+        this.display();
         return this.recipes;
     }
 
@@ -86,3 +101,5 @@ export class Card {
         return 'Cards Displayed.';
     }
 }
+
+export const cardsInstance = new Card();
