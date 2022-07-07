@@ -1,5 +1,7 @@
 import { tagCard } from "./tagCard.model.js";
 
+const tagUstensilsContainer = document.querySelector('.tag-ustensils');
+const tagIngredientsContainer = document.querySelector('.tag-ingredients');
 const tagAppliancesContainer = document.querySelector('.tag-appliances');
 const tagAppliancesList = document.querySelector('.tag-list-appliances');
 const applianceListArrow = document.getElementById('applianceListArrow');
@@ -65,7 +67,7 @@ class Appliances {
       tagCard.addTag({ tag: tag, type: 'appliance' });
       this.displayAppliancesList();
     }
-    return console.log("Tag selectionné :", tag, 'appliance');
+    return `Tag selectionné : ${tag}`;
   }
 
   toggleAppliancesList = (status) => {
@@ -73,10 +75,12 @@ class Appliances {
     const isClassExists = Boolean(containerClass.contains('tag-open'));
 
     const open = () => {
-      containerClass.add('tag-open')
+      containerClass.add('tag-open');
+      tagUstensilsContainer.classList.remove('tag-open');
+      tagIngredientsContainer.classList.remove('tag-open');
     }
     const close = () => {
-      containerClass.remove('tag-open')
+      containerClass.remove('tag-open');
     }
     if (!status) {
       !isClassExists ? open()

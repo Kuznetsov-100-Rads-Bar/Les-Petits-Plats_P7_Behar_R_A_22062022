@@ -1,5 +1,6 @@
 import { ingredientsInstance } from "../models/ingredients.model.js";
 import { appliancesInstance } from "./appliances.model.js";
+import { ustensilsInstance } from "./Ustensils.model.js";
 
 const selectedTagsContainer = document.querySelector('.selected-tags');
 
@@ -27,6 +28,9 @@ class TagCard {
                 } else if (tagType === 'appliance') {
                     this.removeTag(tagName);
                     appliancesInstance.addAppliance(tagName);
+                } else if (tagType === 'ustensil') {
+                    this.removeTag(tagName);
+                    ustensilsInstance.addUstensil(tagName);
                 }
             }
         })
