@@ -30,7 +30,7 @@
             <div class="tag tag-ingredients">
                 <div class="tag-input-container">
                     <input type="text" name="tagListInput" id="tagListInputIngredients" placeholder="Ingredients">
-                    <img id="ingredientListArrow" src="./assets/icons/dropdown-icon.svg">
+                    <img id="ingredientListArrow" src="./assets/icons/dropdown-icon.svg" alt="">
                 </div>
                 <ul class="tag-list tag-list-ingredients">
                     <li class="tag-list-item">...</li>
@@ -38,8 +38,8 @@
             </div>
             <div class="tag tag-appliances">
                 <div class="tag-input-container">
-                    <input id="tagListInputAppliances" type="text" name="tagListInput" id="tagListInput" placeholder="Appareils">
-                    <img id="applianceListArrow" src="./assets/icons/dropdown-icon.svg">
+                    <input id="tagListInputAppliances" type="text" name="tagListInput" placeholder="Appareils">
+                    <img id="applianceListArrow" src="./assets/icons/dropdown-icon.svg" alt="">
                 </div>
                 <ul class="tag-list tag-list-appliances">
                     <li class="tag-list-item">...</li>
@@ -47,8 +47,8 @@
             </div>
             <div class="tag tag-ustensils">
                 <div class="tag-input-container">
-                    <input id="tagListInputUstensils" type="text" name="tagListInput" id="tagListInput" placeholder="Ustensiles">
-                    <img id="ustensilListArrow" class="rotated" src="./assets/icons/dropdown-icon.svg">
+                    <input id="tagListInputUstensils" type="text" name="tagListInput" placeholder="Ustensiles">
+                    <img id="ustensilListArrow" class="rotated" src="./assets/icons/dropdown-icon.svg" alt="">
                 </div>
                 <ul class="tag-list tag-list-ustensils">
                     <li class="tag-list-item">...</li>
@@ -80,6 +80,8 @@
                 </div>
             </div>
         </div>
+        <p id="errorMessage" class="recipes-errors">« Aucune recette ne correspond à votre critère... vous pouvez
+        chercher « tarte aux pommes », « poisson », etc.</p>
     </main>
 
     <script src="./scripts/main.js" type="module"></script>

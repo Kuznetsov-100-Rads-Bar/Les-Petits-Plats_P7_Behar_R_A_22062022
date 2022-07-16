@@ -245,7 +245,6 @@ body {
         }
       }
       .card-description {
-        max-width: 1fr;
         word-wrap: break-word;
         overflow: hidden;
         max-height: 96px;
@@ -258,4 +257,16 @@ body {
     }
 
   }
+}
+
+.recipes-errors {
+  color: rgba(0, 0, 0, 0.43);
+  font-size: 42px;
+}
+
+.not-found {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

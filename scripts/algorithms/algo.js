@@ -35,7 +35,7 @@ export const searchAlgo = (recipes, input) => {
         }
     }
 
-    console.log(input)
+    // console.log(input)
     const filteredRecipes = [...new Set(list)];
 
     return filteredRecipes;

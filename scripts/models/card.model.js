@@ -1,4 +1,5 @@
 const cardsContainer = document.querySelector('.cards-container');
+const errorMessage = document.getElementById('errorMessage');
 
 class Card {
     constructor() {
@@ -26,6 +27,13 @@ class Card {
         this.recipes = recipes;
 
         this.display();
+        if (this.recipes.length <= 0) {
+            cardsContainer.classList.add('not-found');
+            cardsContainer.appendChild(errorMessage);
+        } else {
+            cardsContainer.classList.remove('not-found');
+        }
+
         return this.recipes;
     }
 
