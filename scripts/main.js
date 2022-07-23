@@ -63,6 +63,11 @@ const init = () => {
   cardsInstance.setupInitialRecipes(recipes);
   cardsInstance.display();
   // console.log(cardsInstance.display());
+  /** cardsInstances.getRecipes()
+   * @params NULL || "initial" (pour récupérer les recettes initiales (non filtrées))
+   * @description récupère les recettes filtrées ou non de la page. 
+   **/ 
+  // cardsInstance.getRecipes();
 
   searchInputHandler();
 };

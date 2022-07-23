@@ -128,6 +128,24 @@ class Ustensils {
   getUstensils = () => {
     return this.ustensils;
   };
+
+  updateUstentils = (ustensils) => {
+    const tags = tagCard.getTags();
+    const newUstensilsList = ustensils;
+
+    tags.forEach((tag) => {
+      const tagName = tag.tag;
+      const index = ustensils.indexOf(tagName);
+
+      if (index >= 0) {
+        ustensils.splice(index, 1);
+      }
+    });
+
+    this.ustensils = newUstensilsList;
+    this.displayUstensilsList();
+    return this.ustensils;
+  }
 }
 
 export const ustensilsInstance = new Ustensils();

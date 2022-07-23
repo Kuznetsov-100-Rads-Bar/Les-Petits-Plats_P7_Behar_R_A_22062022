@@ -129,6 +129,24 @@ class Ingredients {
   getIngredients = () => {
     return this.ingredients;
   };
+
+  updateIngredients = (ingredients) => {
+    const tags = tagCard.getTags();
+    const newIngredientsList = ingredients;
+
+    tags.forEach((tag) => {
+      const tagName = tag.tag;
+      const index = ingredients.indexOf(tagName);
+
+      if (index >= 0) {
+        ingredients.splice(index, 1);
+      }
+    });
+    
+    this.ingredients = newIngredientsList;
+    this.displayIngredientsList();
+    return this.ingredients;
+  }
 }
 
 export const ingredientsInstance = new Ingredients();

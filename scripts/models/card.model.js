@@ -1,3 +1,7 @@
+import { appliancesInstance } from "./appliances.model.js";
+import { ingredientsInstance } from "./ingredients.model.js";
+import { ustensilsInstance } from "./Ustensils.model.js";
+
 const cardsContainer = document.querySelector('.cards-container');
 const errorMessage = document.getElementById('errorMessage');
 
@@ -25,7 +29,37 @@ class Card {
         //     this.recipes = recipes;
         // }
         this.recipes = recipes;
+        const tempIngredients = [];
+        const tempUstensils = [];
+        const tempAppliances = [];
 
+        recipes.forEach((recipe) => {
+            /* Pousser les ingrédients dans le tableau tempIngredients. */
+            if (recipe.ingredients) {
+                for (let i = 0; i < recipe.ingredients.length; i++) {
+                    const ingredient = recipe.ingredients[i];
+                    tempIngredients.push(ingredient.ingredient);
+                }
+            }
+            if (recipe.ustensils) {
+                for (let i = 0; i < recipe.ustensils.length; i++) {
+                    const ustensil = recipe.ustensils[i];
+                    tempUstensils.push(ustensil);
+                }
+            }
+            if (recipe.appliance) {
+                tempAppliances.push(recipe.appliance);
+            }
+        });
+
+        /* Création d'un nouveau tableau à partir du tableau tempIngredients, mais uniquement avec des valeurs uniques. */
+        const ingredients = [...new Set(tempIngredients)];
+        const appliances = [...new Set(tempAppliances)];
+        const ustensils = [...new Set(tempUstensils)];
+
+        ingredientsInstance.updateIngredients(ingredients);
+        appliancesInstance.updateAppliances(appliances);
+        ustensilsInstance.updateUstentils(ustensils);
         this.display();
         if (this.recipes.length <= 0) {
             cardsContainer.classList.add('not-found');

@@ -3,6 +3,7 @@
 import { searchAlgo } from "../algorithms/algo.js";
 /* Importation de l'instance cardsInstance depuis le fichier card.model.js. */
 import { cardsInstance } from "../models/card.model.js";
+import { tagCard } from "../models/tagCard.model.js";
 
 /* Obtenir la valeur du champ de saisie. */
 const searchInput = document.getElementById('recipeSearch');
@@ -32,13 +33,16 @@ Objet cardsInstance. La méthode update met à jour la propriété des recettes 
        valeur est inférieure à 3, il mettra à jour la propriété recettes de l'objet cardsInstance avec
        les recettes initiales. */
         if (value && value.length >= 3) {
-            const filteredRecipes = await searchAlgo(recipes, value);
+            const filteredRecipes =  searchAlgo(recipes, value);
             if (filteredRecipes.length === 0) {
+                tagCard.updateSearchRecipes(filteredRecipes);
                 cardsInstance.update(filteredRecipes);
             } else {
+                tagCard.updateSearchRecipes(filteredRecipes);
                 cardsInstance.update(filteredRecipes);
             }
         } else {
+            tagCard.updateSearchRecipes(initialRecipes);
             cardsInstance.update(initialRecipes);
         }
     });

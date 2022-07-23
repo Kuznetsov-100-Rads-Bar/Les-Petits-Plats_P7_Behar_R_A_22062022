@@ -128,6 +128,24 @@ class Appliances {
   getAppliances = () => {
     return this.appliances;
   };
+
+  updateAppliances = (appliances) => {
+    const tags = tagCard.getTags();
+    const newAppliancesList = appliances;
+
+    tags.forEach((tag) => {
+      const tagName = tag.tag;
+      const index = appliances.indexOf(tagName);
+
+      if (index >= 0) {
+        appliances.splice(index, 1);
+      }
+    });
+
+    this.appliances = newAppliancesList;
+    this.displayAppliancesList();
+    return this.appliances;
+  }
 }
 
 export const appliancesInstance = new Appliances();

@@ -1,5 +1,6 @@
 import { ingredientsInstance } from "../models/ingredients.model.js";
 import { appliancesInstance } from "./appliances.model.js";
+import { cardsInstance } from "./card.model.js";
 import { ustensilsInstance } from "./Ustensils.model.js";
 
 const selectedTagsContainer = document.querySelector('.selected-tags');
@@ -8,6 +9,7 @@ class TagCard {
     constructor() {
         this.tagList = [];
         this.init();
+        this.searchRecipes = [];
     }
 
     init = () => {
@@ -37,6 +39,11 @@ class TagCard {
 
     }
 
+    updateSearchRecipes = (recipes) => {
+        this.searchRecipes = recipes;
+        return this.searchRecipes;
+    }
+
     displayTags = () => {
         selectedTagsContainer.innerHTML = '';
         this.tagList.forEach((tag) => {
@@ -61,14 +68,35 @@ class TagCard {
     addTag = (tag) => {
         this.tagList.push(tag);
         this.displayTags();
+        const recipes = cardsInstance.getRecipes();
+        const newRecipes = this.searchRecipes.length > 0 ? this.searchRecipes.filter((recipe) =>
+            tag.type === 'ingredient' ?
+                recipe.ingredients.some((ingredient) => ingredient.ingredient === tag.tag)
+                : tag.type === 'appliance' ?
+                    recipe.appliance === tag.tag :
+                    recipe.ustensils.includes(tag.tag)
+        ) : recipes.filter((recipe) =>
+            tag.type === 'ingredient' ?
+                recipe.ingredients.some((ingredient) => ingredient.ingredient === tag.tag)
+                : tag.type === 'appliance' ?
+                    recipe.appliance === tag.tag :
+                    recipe.ustensils.includes(tag.tag)
+        )
+
+        cardsInstance.update(newRecipes);
     }
     removeTag = (tag) => {
         const index = this.tagList.findIndex((item) => item.tag === tag);
-        console.log(index)
+
         if (index >= 0) {
             this.tagList.splice(index, 1);
             this.displayTags();
-        } 
+        }
+        // cardsInstance.update();
+    }
+
+    getTags = () => {
+        return this.tagList;
     }
 }
 
