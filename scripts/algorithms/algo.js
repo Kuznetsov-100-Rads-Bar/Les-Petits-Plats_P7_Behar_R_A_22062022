@@ -1,12 +1,17 @@
-// export const searchAlgo = (recipes, input) => {
-//     return recipes.filter((recipe) =>
-//         recipe.name.toLowerCase().includes(input)
-//         ||
-//         recipe.ingredients.some((ingredient) => ingredient.ingredient === input)
-//         ||
-//         recipe.description.includes(input)
-//     );
-// }
+/**
+ * Algorythme moderne
+ * @param recipes - an array of objects
+ * @param input - the search input from the user
+ */
+export const searchAlgo = (recipes, input) => {
+    return recipes.filter((recipe) =>
+        recipe.name.toLowerCase().includes(input)
+        ||
+        recipe.ingredients.some((ingredient) => ingredient.ingredient === input)
+        ||
+        recipe.description.includes(input)
+    );
+}
 
 /**
  * Il prend un tableau de recettes et une chaîne d'entrée, et renvoie un tableau de recettes qui correspondent à la chaîne d'entrée
@@ -14,44 +19,46 @@
  * @param input - the search input
  * @returns An array of objects.
  */
-export const searchAlgo = (recipes, input) => {
-/* Création d'un tableau vide. */
-    const list = [];
-    /* Boucler dans le tableau des recettes et vérifier si le nom ou la description correspond à l'entrée. */
-    for (let recipe of recipes) {
-        const recipeName = recipe.name.toLowerCase();
-        const recipeDescription = recipe.description.toLowerCase();
 
-/* Création d'une expression régulière qui correspondra à la chaîne d'entrée. */
-        const regex = new RegExp('(?:^|\\s)' + input.toLowerCase(), 'i');
-/* Tester si l'expression régulière correspond au nom de la recette. */
-        const isNameMatch = regex.test(recipeName);
-/* Tester si l'expression régulière correspond à la description de la recette. */
-        const isDescriptionMatch = regex.test(recipeDescription);
+// Algorythme native
+// export const searchAlgo = (recipes, input) => {
+// /* Création d'un tableau vide. */
+//     const list = [];
+//     /* Boucler dans le tableau des recettes et vérifier si le nom ou la description correspond à l'entrée. */
+//     for (let recipe of recipes) {
+//         const recipeName = recipe.name.toLowerCase();
+//         const recipeDescription = recipe.description.toLowerCase();
 
-        /* Boucler dans le tableau des ingrédients et vérifier si l'ingrédient correspond à l'entrée. */
-        for (const ingredients of recipe.ingredients) {
-            const isIngredientMatch = regex.test(ingredients.ingredient);
+// /* Création d'une expression régulière qui correspondra à la chaîne d'entrée. */
+//         const regex = new RegExp('(?:^|\\s)' + input.toLowerCase(), 'i');
+// /* Tester si l'expression régulière correspond au nom de la recette. */
+//         const isNameMatch = regex.test(recipeName);
+// /* Tester si l'expression régulière correspond à la description de la recette. */
+//         const isDescriptionMatch = regex.test(recipeDescription);
 
-            if (isIngredientMatch) {
-                list.push(recipe);
-            }
-        }
+//         /* Boucler dans le tableau des ingrédients et vérifier si l'ingrédient correspond à l'entrée. */
+//         for (const ingredients of recipe.ingredients) {
+//             const isIngredientMatch = regex.test(ingredients.ingredient);
 
-      /* Pousser la recette dans la liste si le nom ou la description correspond à l'entrée. */
-        if (isNameMatch) {
-            list.push(recipe);
-        }
+//             if (isIngredientMatch) {
+//                 list.push(recipe);
+//             }
+//         }
 
-        if (isDescriptionMatch) {
-            list.push(recipe);
-        }
-    }
+//       /* Pousser la recette dans la liste si le nom ou la description correspond à l'entrée. */
+//         if (isNameMatch) {
+//             list.push(recipe);
+//         }
 
-    // console.log(input)
-/* Suppression des doublons de la liste. */
-    const filteredRecipes = [...new Set(list)];
+//         if (isDescriptionMatch) {
+//             list.push(recipe);
+//         }
+//     }
 
-/* Renvoyer les recettes filtrées. */
-    return filteredRecipes;
-}
+//     // console.log(input)
+// /* Suppression des doublons de la liste. */
+//     const filteredRecipes = [...new Set(list)];
+
+// /* Renvoyer les recettes filtrées. */
+//     return filteredRecipes;
+// }
