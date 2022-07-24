@@ -14,7 +14,7 @@ import { searchInputHandler } from "./components/searchBar.js";
 const init = () => {
   // console.log(recipes);
 
- /* Creating an empty array. */
+ /* Création d'un tableau vide. */
   const tempIngredients = [];
   const tempUstensils = [];
   const tempAppliances = [];
@@ -29,12 +29,14 @@ const init = () => {
         tempIngredients.push(ingredient.ingredient);
       }
     }
+/* Pousser les ustensiles dans le tableau tempUstensils. */
     if (recipe.ustensils) {
       for (let i = 0; i < recipe.ustensils.length; i++) {
         const ustensil = recipe.ustensils[i];
         tempUstensils.push(ustensil);
       }
     }
+/* Pousser l'appliance dans le tableau tempAppliances. */
     if (recipe.appliance) {
       tempAppliances.push(recipe.appliance);
     }
@@ -42,7 +44,9 @@ const init = () => {
 
   /* Création d'un nouveau tableau à partir du tableau tempIngredients, mais uniquement avec des valeurs uniques. */
   const ingredients = [...new Set(tempIngredients)];
+/* Création d'un nouveau tableau à partir du tableau tempAppliances, mais uniquement avec des valeurs uniques. */
   const appliances =  [...new Set(tempAppliances)];
+/* Création d'un nouveau tableau à partir du tableau tempUstensils, mais uniquement avec des valeurs uniques. */
   const ustensils = [...new Set(tempUstensils)];
   //console.log(ingredients);
   //console.log(ustensils);
@@ -60,7 +64,9 @@ const init = () => {
   // console.log("Ustensils", ustensilsInstance.getUstensils());
 
 
+/* Mise en place des recettes initiales. */
   cardsInstance.setupInitialRecipes(recipes);
+/* Affichage des recettes. */
   cardsInstance.display();
   // console.log(cardsInstance.display());
   /** cardsInstances.getRecipes()

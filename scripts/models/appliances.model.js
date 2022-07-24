@@ -1,22 +1,31 @@
+/* Importation du fichier tagCard.model.js. */
 import { tagCard } from "./tagCard.model.js";
 
+/* Une variable constante qui est assignée à l'élément DOM avec la classe tag-ustensils. */
 const tagUstensilsContainer = document.querySelector('.tag-ustensils');
+/* Une variable constante qui est assignée à l'élément DOM avec la classe tag-ingredients. */
 const tagIngredientsContainer = document.querySelector('.tag-ingredients');
+/* Affectation de l'élément DOM avec la classe tag-appliances à la variable tagAppliancesContainer. */
 const tagAppliancesContainer = document.querySelector('.tag-appliances');
+/* Une variable constante qui est assignée à l'élément DOM avec la classe tag-list-appliances. */
 const tagAppliancesList = document.querySelector('.tag-list-appliances');
+/* Obtenir l'élément avec l'id de applianceListArrow. */
 const applianceListArrow = document.getElementById('applianceListArrow');
+/* Obtenir l'élément avec l'id de tagListInputAppliances. */
 const tagListInputAppliance = document.getElementById('tagListInputAppliances');
 
-/* The Appliances class is a class that contains an array of appliances. */
+/* La classe Appliances est une classe qui contient un tableau d'appliances. */
 class Appliances {
   /**
-   * The constructor function is a special function that is called when a new object is created.
+   * La fonction constructeur est une fonction spéciale qui est appelée lorsqu'un nouvel objet est créé.
    * @param appliances - an array of strings
    */
   constructor() {
+/* Création de deux tableaux vide. */
     this.appliances = [];
     this.tempAppliances = [];
 
+    /* Appel de la fonction init. */
     this.init();
   }
 
