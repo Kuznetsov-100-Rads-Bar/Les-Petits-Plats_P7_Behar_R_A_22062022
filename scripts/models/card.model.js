@@ -1,5 +1,6 @@
 import { appliancesInstance } from "./appliances.model.js";
 import { ingredientsInstance } from "./ingredients.model.js";
+import { tagCard } from "./tagCard.model.js";
 import { ustensilsInstance } from "./Ustensils.model.js";
 
 const cardsContainer = document.querySelector('.cards-container');
@@ -14,6 +15,7 @@ class Card {
     setupInitialRecipes = (recipes) => {
         this.initialRecipes = recipes;
         this.recipes = recipes;
+        tagCard.updateSearchRecipes(recipes);
         return 'Card successfully setup';
     }
 

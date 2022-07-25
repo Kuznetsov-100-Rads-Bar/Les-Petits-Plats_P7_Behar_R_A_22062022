@@ -29,13 +29,20 @@ class Appliances {
     this.init();
   }
 
+/* Une fonction qui est appelée lorsque la classe est instanciée. */
+/* Configuration de la liste des appareils. */
   init = () => {
     tagListInputAppliance.value = '';
 
+/* Ajout d'un écouteur d'événement à l'élément applianceListArrow. */
     applianceListArrow.addEventListener('click', () => {
       this.toggleAppliancesList();
     });
 
+/* Écoute d'un événement d'entrée sur l'élément tagListInputAppliance. Si la valeur d'entrée est supérieure
+supérieur à 0, il appelle la fonction toggleAppliancesList avec un paramètre de 1. Si la valeur d'entrée est inférieure
+supérieur ou égal à 0, il appelle la fonction toggleAppliancesList avec un paramètre de 0. Il appelle ensuite
+la fonction displayAppliancesList avec la valeur d'entrée en paramètre. */
     tagListInputAppliance.addEventListener('input', (event) => {
       if (event.target.value.length > 0) {
         this.toggleAppliancesList(1);
@@ -45,6 +52,8 @@ class Appliances {
       this.displayAppliancesList(event.target.value);
     });
 
+/* Écoute d'un événement de clic sur l'élément tagAppliancesList. Si la cible de l'événement a la classe
+tag-list-item, il obtiendra le contenu textuel de la cible et le transmettra à la fonction selectTag. */
     tagAppliancesList.addEventListener('click', (event) => {
       if (event.target.classList.contains('tag-list-item')) {
         const item = event.target;
@@ -53,6 +62,7 @@ class Appliances {
     })
   }
 
+/* A function that is called when the class is instantiated. */
   setupAppliancesList = (appliances) => {
     this.appliances = appliances.sort();
     this.tempAppliances = appliances.sort();
@@ -60,6 +70,7 @@ class Appliances {
     return 'Setup appliances list';
   }
 
+/* Ajouter un appareil à la liste. */
   addAppliance = (appliance) => {
     this.appliances.push(appliance)
     this.appliances = this.appliances.sort();
@@ -67,6 +78,10 @@ class Appliances {
     return 'Appliance added to list';
   }
 
+/* Fonction appelée lorsqu'une balise est sélectionnée. Il prend une balise en paramètre. Il trouve alors le
+index de la balise dans le tableau appliances. Si l'indice est supérieur ou égal à 0, il supprime le
+balise du tableau des appareils, efface le champ de saisie, ajoute la balise à la tagCard et affiche le
+liste des appareils. Il renvoie ensuite une chaîne avec la balise sélectionnée. */
   selectTag = (tag) => {
     const index = this.appliances.findIndex((appliance) => appliance === tag);
 
