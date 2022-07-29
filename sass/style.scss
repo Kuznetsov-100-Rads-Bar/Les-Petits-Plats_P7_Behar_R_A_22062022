@@ -270,3 +270,23 @@ body {
   justify-content: center;
   text-align: center;
 }
+
+// /*  Responsive  1024px  */
+// @media screen and (min-width: 1150px) {
+//   .cards-container container {
+//     margin: 0 50px;
+//   }
+
+//   .cards-container { 
+//   & .container {
+//     max-width: 550px;
+//       margin-left: 30px;
+//       display: grid;
+//       justify-items: flex-start;
+//   }
+// }
+// #errorMessage {
+//   font-size: 1.5em;
+//   margin-top: 250px;
+// }
+// }
