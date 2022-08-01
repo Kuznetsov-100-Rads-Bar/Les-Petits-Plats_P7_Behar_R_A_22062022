@@ -118,24 +118,35 @@ class TagCard {
         return this.tagList;
     }
 
+/* Filtrer les recettes par les tags. */
     filterByTags = () => {
+        /* Mapper le tableau tagList et renvoyer la balise si le type est égal à l'ingrédient. */
         const ingredientTags = this.tagList.map((tag) => tag.type === 'ingredient' ? tag.tag : null);
         const applianceTags = this.tagList.map((tag) => tag.type === 'appliance' ? tag.tag : null);
         const ustensilTags = this.tagList.map((tag) => tag.type === 'ustensil' ? tag.tag : null);
 
+/* Création d'un tableau vide. */
         let tempRecipes = [];
 
+/* Filtrer les recettes par les ingrédients. */
         tempRecipes.push(...this.searchRecipes.filter((recipe) => recipe.ingredients.some((ingredient) => ingredientTags.includes(ingredient.ingredient))));
+/* Filtrer les recettes par les appareils. */
         tempRecipes.push(...this.searchRecipes.filter((recipe) => applianceTags.includes(recipe.appliance)));
+/* Filtrer les recettes par les ustensiles. */
         tempRecipes.push(...this.searchRecipes.filter((recipe) => recipe.ustensils.some((ustensil) => ustensilTags.includes(ustensil))));
 
+/* Suppression des doublons du tableau. */
         const newRecipes = [...new Set(tempRecipes)];
 
+/* Vérifier si la longueur du tableau est inférieure ou égale à 0. Si c'est le cas, il définit la
+filteredRecipes au tableau newRecipes. Il renvoie ensuite la fonction cardsInstance.update avec la
+tableau searchRecipes. */
         if (newRecipes.length <= 0) {
             this.filteredRecipes = newRecipes;
             return cardsInstance.update(this.searchRecipes);
         }
 
+/* Renvoyer la fonction cardsInstance.update avec le tableau searchRecipes. */
         return cardsInstance.update(newRecipes);
     }
 }
