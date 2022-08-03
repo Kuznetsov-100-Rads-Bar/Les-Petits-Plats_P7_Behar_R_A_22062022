@@ -27,7 +27,7 @@ class TagCard {
         this.displayTags();
 
         selectedTagsContainer.addEventListener('click', (event) => {
-            console.log()
+            // console.log()
             /* Vérifier si la cible de l'événement est une image. Si c'est le cas, il obtient le nœud parent du
             image, qui est le div avec la classe de la balise sélectionnée. Il obtient alors le texte
             contenu du premier nœud enfant de la div, qui est la balise p. Il obtient alors le
@@ -37,7 +37,7 @@ class TagCard {
                 const tagName = tagContainer.childNodes[0].textContent;
                 const tagType = tagContainer.classList[1];
 
-                console.log({ tag: tagName, type: tagType });
+                // console.log({ tag: tagName, type: tagType });
 
                 /* Vérifier si le tagType est égal à ingrédient, appareil ou ustensile. S'il est égal à l'ingrédient,
                 il supprimera l'étiquette et ajoutera l'ingrédient. S'il est égal à appliance, il supprimera l'étiquette

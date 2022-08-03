@@ -96,6 +96,7 @@ class Ustensils {
 
   displayUstensilsList = (filter) => {
     tagUstensilsList.innerHTML = '';
+    // créer une liste d'usentils en retirant les doublons
     const ustensilsList = [...new Set(this.ustensils)];
     if (!filter) {
       ustensilsList.forEach((ustensil) => {
@@ -108,6 +109,7 @@ class Ustensils {
     } else {
       if (filter.length > 0) {
         if (ustensilsList) {
+          // filtrage des ustensils avec le tag recherchés
           ustensilsList.filter((ustensil) => filter.toLowerCase() === ustensil.toLowerCase()).forEach((ustensil) => {
             const ustensilItemList = document.createElement('li');
             ustensilItemList.classList.add('tag-list-item');
