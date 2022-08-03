@@ -294,17 +294,12 @@ body {
   transform: translate(-50%, -50%);
   }
   .cards-container.container { 
-  display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    margin: 110px 50px;
-    margin-top: 40px;
-    margin-left: 40px;
-    margin-right: 40px;
-
-  &.cards-container.container.card {
-    max-width: none;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 35px;
+  margin: 110px 50px;
   }
 }
 
@@ -314,14 +309,22 @@ body {
   margin-left: 50%;
   transform: translateX(-50%);
 }
+//  .header-search-input .search-icon{
+//   position: absolute;
+//   right: -4px;
+//   width: 15px;
+//   height: 28px;
+//   top: 45%;
+//   transform: translate(50%, -50%);
+// }
 .header-logo {
    width: 200px;
 }
 
     .cards-container{ 
-      &.container {
+      .container {
      display: grid;
-  max-width: none;
+     max-width: none;
      gap: 40px;
      grid-template-columns: repeat(3, 1fr);
      display: block;

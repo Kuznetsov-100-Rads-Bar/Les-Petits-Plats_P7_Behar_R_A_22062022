@@ -97,8 +97,9 @@ class Ingredients {
 
   displayIngredientsList = (filter) => {
     tagIngredientsList.innerHTML = '';
+    const ingredientsList = [...new Set(this.ingredients)];
     if (!filter) {
-      this.ingredients.forEach((ingredient) => {
+      ingredientsList.forEach((ingredient) => {
         const ingredientItemList = document.createElement('li');
         ingredientItemList.classList.add('tag-list-item');
         ingredientItemList.textContent = ingredient;
@@ -106,11 +107,9 @@ class Ingredients {
         tagIngredientsList.appendChild(ingredientItemList);
       });
     } else {
-      const filteredList = this.ingredients.filter((item) => item.toLowerCase().charAt(0) === filter[0] && item.toLowerCase().includes(filter.toLowerCase()));
-
       if (filter.length > 0) {
-        if (filteredList) {
-          filteredList.forEach((ingredient) => {
+        if (ingredientsList) {
+          ingredientsList.filter((ingredient) => filter.toLowerCase() === ingredient.toLowerCase()).forEach((ingredient) => {
             const ingredientItemList = document.createElement('li');
             ingredientItemList.classList.add('tag-list-item');
             ingredientItemList.textContent = ingredient;
@@ -142,7 +141,7 @@ class Ingredients {
         ingredients.splice(index, 1);
       }
     });
-    
+
     this.ingredients = newIngredientsList;
     this.displayIngredientsList();
     return this.ingredients;

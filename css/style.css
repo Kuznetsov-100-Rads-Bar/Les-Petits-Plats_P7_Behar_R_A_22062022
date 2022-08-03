@@ -263,16 +263,12 @@ body {
     transform: translate(-50%, -50%);
   }
   .cards-container.container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 35px;
     margin: 110px 50px;
-    margin-top: 40px;
-    margin-left: 40px;
-    margin-right: 40px;
-  }
-  .cards-container.container.cards-container.container.card {
-    max-width: none;
   }
 }
 /*  Responsive  768px  */
@@ -284,7 +280,7 @@ body {
   .header-logo {
     width: 200px;
   }
-  .cards-container.container {
+  .cards-container .container {
     display: grid;
     max-width: none;
     gap: 40px;
