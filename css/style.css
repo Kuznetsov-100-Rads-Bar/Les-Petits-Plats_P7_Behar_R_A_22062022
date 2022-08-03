@@ -79,7 +79,7 @@ body {
   gap: 20px;
 }
 .tags-container .tag {
-  width: 170px;
+  width: 100%;
   height: max-content;
   border-radius: 5px;
   background-color: #E7E7E7;
@@ -248,19 +248,15 @@ body {
 
 @media screen and (max-width: 1150px) {
   .header-search-input {
-    margin: 165px;
-    margin-bottom: auto;
+    margin: 0 30px;
   }
   .tags-container {
-    display: flex;
-    justify-content: center;
+    margin: 0 30px;
+    display: grid;
     gap: 20px;
   }
-  .header-logo {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .tag-input-container {
+    width: 100%;
   }
   .cards-container.container {
     display: flex;
@@ -268,30 +264,6 @@ body {
     flex-direction: row;
     justify-content: center;
     gap: 35px;
-    margin: 110px 50px;
-  }
-}
-/*  Responsive  768px  */
-@media screen and (max-width: 768px) {
-  .header-search-input {
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
-  .header-logo {
-    width: 200px;
-  }
-  .cards-container .container {
-    display: grid;
-    max-width: none;
-    gap: 40px;
-    grid-template-columns: repeat(3, 1fr);
-    display: block;
-  }
-  .tags-container {
-    max-width: 100%;
-    display: grid;
-    justify-items: center;
-    margin-left: 0px;
   }
 }
 
