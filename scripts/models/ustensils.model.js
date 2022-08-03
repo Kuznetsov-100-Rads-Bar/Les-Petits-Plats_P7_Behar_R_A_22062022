@@ -96,8 +96,9 @@ class Ustensils {
 
   displayUstensilsList = (filter) => {
     tagUstensilsList.innerHTML = '';
+    const ustensilsList = [...new Set(this.ustensils)];
     if (!filter) {
-      this.ustensils.forEach((ustensil) => {
+      ustensilsList.forEach((ustensil) => {
         const ustensilItemList = document.createElement('li');
         ustensilItemList.classList.add('tag-list-item');
         ustensilItemList.textContent = ustensil;
@@ -105,11 +106,9 @@ class Ustensils {
         tagUstensilsList.appendChild(ustensilItemList);
       });
     } else {
-      const filteredList = this.ustensils.filter((item) => item.toLowerCase().charAt(0) === filter[0] && item.toLowerCase().includes(filter.toLowerCase()));
-
       if (filter.length > 0) {
-        if (filteredList) {
-          filteredList.forEach((ustensil) => {
+        if (ustensilsList) {
+          ustensilsList.filter((ustensil) => filter.toLowerCase() === ustensil.toLowerCase()).forEach((ustensil) => {
             const ustensilItemList = document.createElement('li');
             ustensilItemList.classList.add('tag-list-item');
             ustensilItemList.textContent = ustensil;

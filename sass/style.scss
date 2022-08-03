@@ -149,6 +149,7 @@ body {
         }
       }
       .tag-list {
+        width: 63%;
         display: grid !important;
       }
     }
@@ -295,6 +296,10 @@ body {
   flex-direction: row;
   justify-content: center;
   gap: 35px;
+  }
+  .recipes-errors {
+    font-size: 1.2em;
+    margin: 20px 18px 20px;
   }
 }
 
