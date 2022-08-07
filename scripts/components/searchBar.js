@@ -12,6 +12,11 @@ const searchInput = document.getElementById('recipeSearch');
  * Il prend la valeur de l'entrée de recherche et filtre les recettes en fonction de la valeur.
  */
 /* Une fonction qui est appelée lorsque l'utilisateur tape dans le champ de recherche. */
+/**
+ * La fonction searchInputHandler écoute un événement d'entrée sur l'élément searchInput. Quand l'événement
+ * est déclenché, il obtient la valeur de l'entrée et la transmet à la fonction searchAlgo. La fonction searchAlgo renvoie un tableau filtré de recettes. Le tableau filtré est ensuite passé au
+Le tableau filtré est ensuite transmis à la méthode de mise à jour de l'objet cardsInstance. La méthode update met à jour la propriété des recettes de l'objet cardsInstance
+ */
 const searchInputHandler = () => {
     /* Obtenir les recettes initiales des cartesInstance. */
     const initialRecipes = cardsInstance.getRecipes('initial');
