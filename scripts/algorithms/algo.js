@@ -11,10 +11,10 @@ export const searchAlgo = (recipes, input) => {
                 recipe.name.toLowerCase().includes(input)
                 ||
                 /* Il vérifie si l'ingrédient est égal à l'entrée. */
-                recipe.ingredients.some((ingredient) => ingredient.ingredient === input)
+                recipe.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase() === input)
                 ||
                 /* Vérifier si la description de la recette inclut l'entrée. */
-                recipe.description.includes(input)
+                recipe.description.toLowerCase().includes(input)
         );
 }
 

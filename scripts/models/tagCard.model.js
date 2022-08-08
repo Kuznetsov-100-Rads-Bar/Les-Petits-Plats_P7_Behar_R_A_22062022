@@ -101,8 +101,10 @@ class TagCard {
     }
     /* Suppression de la balise du tableau tagList. */
     removeTag = (tag) => {
+/* Trouver l'index de la balise dans le tableau tagList. */
         const index = this.tagList.findIndex((item) => item.tag === tag);
 
+/* Suppression de la balise du tableau tagList. */
         if (index >= 0) {
             this.tagList.splice(index, 1);
             this.displayTags();
@@ -117,6 +119,7 @@ class TagCard {
         return this.tagList;
     }
 
+    /* Filtrer les recettes par les tags. */
     /* Renvoie une liste des nouvelles recettes mise à jour en filtrant les ingrédients, appareils, et usenstils grace aux tags selectionnés */
     getUpdatedRecipes = (array) => {
         const updatedRecipes = array.filter((recipe) => {

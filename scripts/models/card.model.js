@@ -1,17 +1,26 @@
+/* Importation de appliancesInstance à partir du fichier appliances.model.js. */
 import { appliancesInstance } from "./appliances.model.js";
+/* Importation de l'instance ingredientsInstance depuis le fichier ingredients.model.js. */
 import { ingredientsInstance } from "./ingredients.model.js";
+/* Importation du modèle tagCard à partir du fichier tagCard.model.js. */
 import { tagCard } from "./tagCard.model.js";
+/* Importation de ustensilsInstance depuis le fichier Ustensils.model.js. */
 import { ustensilsInstance } from "./Ustensils.model.js";
 
+/* Sélection de l'élément avec le nom de classe cards-container. */
 const cardsContainer = document.querySelector('.cards-container');
+/* Sélection de l'élément avec l'id errorMessage. */
 const errorMessage = document.getElementById('errorMessage');
 
+/* La classe Card a deux propriétés : initialRecipes et recettes. */
 class Card {
     constructor() {
         this.initialRecipes = [];
         this.recipes = [];
     }
 
+    /* Une fonction qui prend un tableau de recettes et définit la propriété initialeRecipes de la classe
+    au tableau des recettes. */
     setupInitialRecipes = (recipes) => {
         this.initialRecipes = recipes;
         this.recipes = recipes;
@@ -19,6 +28,9 @@ class Card {
         return 'Card successfully setup';
     }
 
+/* Une fonction qui prend en paramètre isInitial et renvoie la propriété initialeRecipes de la classe
+si le paramètre isInitial est égal à la chaîne "initial". Sinon, il renvoie les recettes
+propriété de la classe. */
     getRecipes = (isInitial) => {
         if (isInitial && isInitial === "initial") {
             return this.initialRecipes;
@@ -37,18 +49,21 @@ class Card {
 
         recipes.forEach((recipe) => {
             /* Pousser les ingrédients dans le tableau tempIngredients. */
+/* Pousser les ingrédients, les ustensiles et les appareils dans leurs tableaux respectifs. */
             if (recipe.ingredients) {
                 for (let i = 0; i < recipe.ingredients.length; i++) {
                     const ingredient = recipe.ingredients[i];
                     tempIngredients.push(ingredient.ingredient);
                 }
             }
+/* Pousser les ustensiles dans le tableau tempUstensils. */
             if (recipe.ustensils) {
                 for (let i = 0; i < recipe.ustensils.length; i++) {
                     const ustensil = recipe.ustensils[i];
                     tempUstensils.push(ustensil);
                 }
             }
+/* Pousser les ustensiles dans le tableau tempUstensils. */
             if (recipe.appliance) {
                 tempAppliances.push(recipe.appliance);
             }
@@ -59,9 +74,15 @@ class Card {
         const appliances = [...new Set(tempAppliances)];
         const ustensils = [...new Set(tempUstensils)];
 
+/* Mise à jour de l'instance ingredients avec le tableau ingredients. */
         ingredientsInstance.updateIngredients(ingredients);
+/* Mise à jour de appliancesInstance avec le tableau appliances. */
         appliancesInstance.updateAppliances(appliances);
+/* Mise à jour de ustensilsInstance avec le tableau ustensils. */
         ustensilsInstance.updateUstentils(ustensils);
+/* Vérifier si le tableau des recettes est vide ou non. S'il est vide, il ajoute la classe not-found à la
+cardsContainer et ajoute l'élément errorMessage à l'élément cardsContainer. Si c'est
+non vide, il supprime la classe not-found de l'élément cardsContainer. */
         this.display();
         if (this.recipes.length <= 0) {
             cardsContainer.classList.add('not-found');
@@ -70,9 +91,11 @@ class Card {
             cardsContainer.classList.remove('not-found');
         }
 
+/* Returning the recipes property of the class. */
         return this.recipes;
     }
 
+/* Effacement de l'élément cardsContainer. */
     display = () => {
         cardsContainer.innerHTML = '';
 
