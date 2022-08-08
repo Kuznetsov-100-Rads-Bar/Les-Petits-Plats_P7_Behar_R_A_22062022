@@ -136,6 +136,7 @@ class Ingredients {
       if (ingredientsList) {
         ingredientsList.filter((ingredient) => ingredient.toLowerCase().includes(filter.toLowerCase()))
         .forEach((ingredient) => {
+           // console.log(filter.toLowerCase(), ingredient.toLowerCase())
             const ingredientItemList = document.createElement('li');
             ingredientItemList.classList.add('tag-list-item');
             ingredientItemList.textContent = ingredient;
