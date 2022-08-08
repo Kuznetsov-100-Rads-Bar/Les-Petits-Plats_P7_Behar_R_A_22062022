@@ -92,7 +92,6 @@ body {
   flex-direction: row;
   gap: 20px;
   .tag {
-    outline: none;
     //width: 100%;
     // width: 667px;
     height: max-content;
@@ -304,3 +303,6 @@ body {
   }
 }
 
+input {
+  outline:none;
+}
