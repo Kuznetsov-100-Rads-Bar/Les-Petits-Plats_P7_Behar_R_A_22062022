@@ -195,13 +195,18 @@ displayAppliancesList. Il renvoie ensuite le tableau d'appliances. */
       const tagName = tag.tag;
       const index = appliances.indexOf(tagName);
 
+/* Vérifier si l'index de la balise est supérieur ou égal à 0. Si c'est le cas, cela supprimera la balise
+de la gamme d'appareils. */
       if (index >= 0) {
         appliances.splice(index, 1);
       }
     });
 
+/* Mise à jour de la liste des appareils. */
     this.appliances = newAppliancesList;
+/* Appel de la fonction displayAppliancesList. */
     this.displayAppliancesList();
+/* Renvoi le tableau d'appliances. */
     return this.appliances;
   }
 }
