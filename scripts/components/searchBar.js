@@ -37,16 +37,26 @@ Objet cardsInstance. La méthode update met à jour la propriété des recettes 
        Propriété de recettes de l'objet cardsInstance. Si la valeur est vide ou la longueur du
        valeur est inférieure à 3, il mettra à jour la propriété recettes de l'objet cardsInstance avec
        les recettes initiales. */
-        if (value && value.length >= 3) {
+        if (/* Vérifier si la valeur n'est pas vide et si la longueur de la valeur est supérieure ou
+        égal à 3. */
+        value && value.length >= 3) {
             const filteredRecipes =  searchAlgo(recipes, value);
+           /*  Vérifie si la longueur de filteredRecipes est égale à 0. Si c'est le cas, il mettra à jour le
+           searchRecipes de l'objet tagCard avec filteredRecipes. Cela va aussi
+           mettez à jour la propriété de recettes de l'objet cardsInstance avec filteredRecipes. */
             if (filteredRecipes.length === 0) {
                 tagCard.updateSearchRecipes(filteredRecipes);
                 cardsInstance.update(filteredRecipes);
-            } else {
+            } else /* Mise à jour de la propriété searchRecipes de l'objet tagCard avec filteredRecipes.
+            Il met également à jour la propriété des recettes de l'objet cardsInstance avec
+            Recettes filtrées. */
+            {
                 tagCard.updateSearchRecipes(filteredRecipes);
                 cardsInstance.update(filteredRecipes);
             }
-        } else {
+        } else /* Mise à jour de la propriété searchRecipes de l'objet tagCard avec initialRecipes. Il est
+        mettant également à jour la propriété de recettes de l'objet cardsInstance avec initialRecipes. */
+        {
             tagCard.updateSearchRecipes(initialRecipes);
             cardsInstance.update(initialRecipes);
         }
