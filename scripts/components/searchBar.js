@@ -1,8 +1,8 @@
-// const errorMessage = document.getElementById("errorMessage");
 /* Importation de la fonction searchAlgo depuis le fichier algo.js. */
 import { searchAlgo } from "../algorithms/algo.js";
 /* Importation de l'instance cardsInstance depuis le fichier card.model.js. */
 import { cardsInstance } from "../models/card.model.js";
+/* Importation de l'objet tagCard à partir du fichier tagCard.model.js. */
 import { tagCard } from "../models/tagCard.model.js";
 
 /* Obtenir la valeur du champ de saisie. */

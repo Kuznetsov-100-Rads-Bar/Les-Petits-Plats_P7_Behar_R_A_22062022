@@ -1,3 +1,5 @@
+/* Création et initialisation des instances. Au chargement de la page ! */
+
 /* Importing the recipes.js file. */
 import recipes from "../data/recipes.js";
 /* Importing the cardsInstance from the card.model.js file. */
