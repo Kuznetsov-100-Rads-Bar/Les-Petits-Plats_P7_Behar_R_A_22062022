@@ -274,4 +274,10 @@ input {
   outline: none;
 }
 
+#tagListInputIngredients,
+#tagListInputAppliances,
+#tagListInputUstensils {
+  color: white;
+}
+
 /*# sourceMappingURL=style.css.map */
