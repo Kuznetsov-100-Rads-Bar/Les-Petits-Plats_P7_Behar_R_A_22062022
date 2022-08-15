@@ -86,6 +86,7 @@ non vide, il supprime la classe not-found de l'élément cardsContainer. */
         this.display();
         if (this.recipes.length <= 0) {
             cardsContainer.classList.add('not-found');
+            errorMessage.style.display = "block";
             cardsContainer.appendChild(errorMessage);
         } else {
             cardsContainer.classList.remove('not-found');

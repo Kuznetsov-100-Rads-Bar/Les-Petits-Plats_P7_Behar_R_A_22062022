@@ -94,36 +94,29 @@ class Ustensils {
     return 'Menu toggled';
   }
 
+  createItem = (ustensil) => {
+    const ustensilItemList = document.createElement('li');
+    ustensilItemList.classList.add('tag-list-item');
+    ustensilItemList.textContent = ustensil;
+
+    tagUstensilsList.appendChild(ustensilItemList);
+  }
+
   displayUstensilsList = (filter) => {
     tagUstensilsList.innerHTML = '';
-    // créer une liste d'usentils en retirant les doublons
     const ustensilsList = [...new Set(this.ustensils)];
-    if (!filter) {
-      ustensilsList.forEach((ustensil) => {
-        const ustensilItemList = document.createElement('li');
-        ustensilItemList.classList.add('tag-list-item');
-        ustensilItemList.textContent = ustensil;
-
-        tagUstensilsList.appendChild(ustensilItemList);
-      });
-    } else {
-      if (filter.length > 0) {
-        if (ustensilsList) {
-          // filtrage des ustensils avec le tag recherchés
-          ustensilsList.filter((ustensil) => filter.toLowerCase() === ustensil.toLowerCase()).forEach((ustensil) => {
-            const ustensilItemList = document.createElement('li');
-            ustensilItemList.classList.add('tag-list-item');
-            ustensilItemList.textContent = ustensil;
-
-            tagUstensilsList.appendChild(ustensilItemList);
-          });
-        } else {
-          this.displayUstensilsList();
-        }
+    if (filter) {
+      if (!ustensilsList.find((ustensil) => ustensil.toLowerCase().includes(filter.toLowerCase()))) {
+        ustensilsList.forEach((ustensil) => this.createItem(ustensil));
+      } else {
+        ustensilsList.filter((ustensil) => ustensil.toLowerCase().includes(filter.toLowerCase()))
+          .forEach((ustensil) => this.createItem(ustensil));
       }
-
+    } else {
+      ustensilsList.forEach((ustensil) => this.createItem(ustensil));
     }
-    return 'Ustensil list displayed';
+
+    return 'Ustensils list displayed';
   }
 
   getUstensils = () => {

@@ -29,6 +29,7 @@ class Ingredients {
     La fonction toggleIngredientsList est appelée. */
     ingredientListArrow.addEventListener('click', () => {
       this.toggleIngredientsList();
+      this.displayIngredientsList();
     });
 
     /* Écoute d'un événement d'entrée sur l'élément tagListInputIngredient. Si la valeur d'entrée est supérieure
@@ -121,33 +122,28 @@ class Ingredients {
     return 'Menu toggled';
   }
 
+  createItem = (ingredient) => {
+    const ingredientItemList = document.createElement('li');
+    ingredientItemList.classList.add('tag-list-item');
+    ingredientItemList.textContent = ingredient;
+
+    tagIngredientsList.appendChild(ingredientItemList);
+  }
+
   displayIngredientsList = (filter) => {
     tagIngredientsList.innerHTML = '';
     const ingredientsList = [...new Set(this.ingredients)];
-    if (!filter) {
-      ingredientsList.forEach((ingredient) => {
-        const ingredientItemList = document.createElement('li');
-        ingredientItemList.classList.add('tag-list-item');
-        ingredientItemList.textContent = ingredient;
-
-        tagIngredientsList.appendChild(ingredientItemList);
-      });
-    } else {
-      if (ingredientsList) {
-        ingredientsList.filter((ingredient) => ingredient.toLowerCase().includes(filter.toLowerCase()))
-        .forEach((ingredient) => {
-           // console.log(filter.toLowerCase(), ingredient.toLowerCase())
-            const ingredientItemList = document.createElement('li');
-            ingredientItemList.classList.add('tag-list-item');
-            ingredientItemList.textContent = ingredient;
-
-            tagIngredientsList.appendChild(ingredientItemList);
-          });
+    if (filter) {
+      if (!ingredientsList.find((ingredient) => ingredient.toLowerCase().includes(filter.toLowerCase()))) {
+        ingredientsList.forEach((ingredient) => this.createItem(ingredient));
       } else {
-        this.displayIngredientsList();
+        ingredientsList.filter((ingredient) => ingredient.toLowerCase().includes(filter.toLowerCase()))
+          .forEach((ingredient) => this.createItem(ingredient));
       }
-
+    } else {
+      ingredientsList.forEach((ingredient) => this.createItem(ingredient));
     }
+
     return 'Ingredient list displayed';
   }
 
