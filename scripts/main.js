@@ -81,24 +81,3 @@ const init = () => {
 };
 
 init();
-/*
-function generateIng(recipeArr) {
-  let temp = []
-  recipes.forEach((recipe) => {
-    if (recipe.ingredients) {
-      for (let i = 0; i < recipe.ingredients.length; i++) {
-        const ingredient = recipe.ingredients[i];
-        temp.push(ingredient.ingredient);
-      }
-    }
-  });
-
-  return temp
-}
-
-function displayIng() {
-
-}
-
-const ingList = generateIng(filteredRecipe)
-displayIng(ingList);*/
