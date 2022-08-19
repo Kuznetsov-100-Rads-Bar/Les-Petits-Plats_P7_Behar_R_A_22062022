@@ -80,8 +80,7 @@ propriété de la classe. */
         appliancesInstance.updateAppliances(appliances);
 /* Mise à jour de ustensilsInstance avec le tableau ustensils. */
         ustensilsInstance.updateUstentils(ustensils);
-/* Vérifier si le tableau des recettes est vide ou non. S'il est vide, il ajoute la classe not-found à la
-cardsContainer et ajoute l'élément errorMessage à l'élément cardsContainer. Si c'est
+/* Vérifier si le tableau des recettes est vide ou non. S'il est vide, il ajoute la classe not-found au cardsContainer et ajoute l'élément errorMessage à l'élément cardsContainer. Si c'est
 non vide, il supprime la classe not-found de l'élément cardsContainer. */
         this.display();
         if (this.recipes.length <= 0) {

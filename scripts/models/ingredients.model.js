@@ -3,7 +3,6 @@ import { tagCard } from "./tagCard.model.js";
 const tagUstensilsContainer = document.querySelector('.tag-ustensils');
 const tagIngredientsContainer = document.querySelector('.tag-ingredients');
 const tagAppliancesContainer = document.querySelector('.tag-appliances');
-
 const tagIngredientsList = document.querySelector('.tag-list-ingredients');
 const ingredientListArrow = document.getElementById('ingredientListArrow');
 const tagListInputIngredient = document.getElementById('tagListInputIngredients');
