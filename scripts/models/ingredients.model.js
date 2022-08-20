@@ -1,5 +1,7 @@
+/* Importation du module tagCard depuis le fichier tagCard.model.js. */
 import { tagCard } from "./tagCard.model.js";
 
+/* Une variable constante qui est assignée à l'élément avec le nom de classe 'tag-ustensils'. */
 const tagUstensilsContainer = document.querySelector('.tag-ustensils');
 const tagIngredientsContainer = document.querySelector('.tag-ingredients');
 const tagAppliancesContainer = document.querySelector('.tag-appliances');
@@ -7,12 +9,13 @@ const tagIngredientsList = document.querySelector('.tag-list-ingredients');
 const ingredientListArrow = document.getElementById('ingredientListArrow');
 const tagListInputIngredient = document.getElementById('tagListInputIngredients');
 
-/* The Ingredients class is a class that contains an array of ingredients. */
+/* La classe Ingrédients est une classe qui contient un tableau d'ingrédients. */
 class Ingredients {
   /**
    * The constructor function is a special function that is called when a new object is created.
    * @param ingredients - an array of strings
    */
+/* Une fonction constructeur. C'est une fonction spéciale qui est appelée lorsqu'un nouvel objet est créé. */
   constructor() {
     this.ingredients = [];
     this.tempIngredients = [];
@@ -118,9 +121,11 @@ class Ingredients {
       close();
     }
 
+/* Retourner une chaîne. */
     return 'Menu toggled';
   }
 
+/* Créer un élément de liste et l'ajouter à la baliseIngredientsList. */
   createItem = (ingredient) => {
     const ingredientItemList = document.createElement('li');
     ingredientItemList.classList.add('tag-list-item');
@@ -131,7 +136,9 @@ class Ingredients {
 
   displayIngredientsList = (filter) => {
     tagIngredientsList.innerHTML = '';
+/* Création d'un nouveau tableau à partir du tableau des ingrédients. */
     const ingredientsList = [...new Set(this.ingredients)];
+/* Filtrer la liste des ingrédients. */
     if (filter) {
       if (!ingredientsList.find((ingredient) => ingredient.toLowerCase().includes(filter.toLowerCase()))) {
         ingredientsList.forEach((ingredient) => this.createItem(ingredient));
@@ -146,23 +153,28 @@ class Ingredients {
     return 'Ingredient list displayed';
   }
 
+/* Une méthode getter. Il renvoie la valeur des ingrédients de la propriété. */
   getIngredients = () => {
     return this.ingredients;
   };
 
+/* Mise à jour de la liste des ingrédients. */
   updateIngredients = (ingredients) => {
     const tags = tagCard.getTags();
     const newIngredientsList = ingredients;
 
+/* Parcourez le tableau des balises et vérifiez si la balise se trouve dans le tableau des ingrédients. Si c'est le cas, on le supprime du tableau des ingrédients. */
     tags.forEach((tag) => {
       const tagName = tag.tag;
       const index = ingredients.indexOf(tagName);
 
+/* Suppression de l'étiquette de la liste des ingrédients. */
       if (index >= 0) {
         ingredients.splice(index, 1);
       }
     });
 
+/* Mise à jour de la liste des ingrédients. */
     this.ingredients = newIngredientsList;
     this.displayIngredientsList();
     return this.ingredients;

@@ -74,10 +74,12 @@ const init = () => {
   /** cardsInstances.getRecipes()
    * @params NULL || "initial" (pour récupérer les recettes initiales (non filtrées))
    * @description récupère les recettes filtrées ou non de la page. 
-   **/ 
+   **/
   // cardsInstance.getRecipes();
 
+/* Appel de la fonction searchInputHandler depuis le fichier searchBar.js. */
   searchInputHandler();
 };
 
+/* Appel de la fonction init. */
 init();

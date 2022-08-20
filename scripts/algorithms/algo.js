@@ -1,5 +1,5 @@
 /**
- * Algorythme moderne
+ * ALGORYTHME MODERNE
  * @param recipes - an array of objects
  * @param input - the search input from the user
  */
@@ -26,7 +26,7 @@ export const searchAlgo = (recipes, input) => {
  */
 
 
-// Algorythme native
+// ALGORYTHME NATIVE
 // export const searchAlgo = (recipes, input) => {
 //         /* Création d'un tableau vide. */
 //         const list = [];
